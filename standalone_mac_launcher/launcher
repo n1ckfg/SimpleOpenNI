@@ -1,0 +1,28 @@
+#!/bin/bash
+
+JDK_NAME=jdk1.8.0_202.jdk
+
+cd "$(dirname ${BASH_SOURCE})"
+cd ../..
+APP_ROOT=$(pwd)
+cd Contents/Java
+
+JAR_LIBS=$(ls *.jar | tr "\n" ":")
+JAR_LIBS=${JAR_LIBS}./SimpleOpenNI/library/SimpleOpenNI.jar
+
+APP_NAME=$(basename "${BASH_SOURCE}")
+
+# Caution: if your embedded java has a different version, replace jdk1.8.0_181.jdk with the correct name
+# if you didn't choose to embedded java in your exported application, set JAVA_BIN=java to use the global java
+JAVA_BIN=${APP_ROOT}/Contents/PlugIns/$JDK_NAME/Contents/Home/jre/bin/java
+
+${JAVA_BIN} \
+-Djna.nosys=true \
+-Djava.ext.dirs=$APP_ROOT/Contents/PlugIns/$JDK_NAME/Contents/Home/jre/lib/ext \
+-Xdock:icon=$APP_ROOT/Contents/Resources/sketch.icns \
+-Djava.library.path=$APP_ROOT/Contents/Java \
+-Dapple.laf.useScreenMenuBar=true \
+-Dcom.apple.macos.use-file-dialog-packages=true \
+-Dcom.apple.macos.useScreenMenuBar=true \
+-Dcom.apple.mrj.application.apple.menu.about.name=${APP_NAME} \
+-classpath ${JAR_LIBS} ${APP_NAME}
