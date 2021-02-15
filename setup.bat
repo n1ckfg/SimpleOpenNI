@@ -1,7 +1,5 @@
 @echo off
 
-cd %cd%
-cd library\NiTE2\Data\
-unzip lbsdata.lbd.zip
+powershell -command "Expand-Archive -Force '%~dp0library\NiTE2\Data\lbsdata.lbd.zip' '%~dp0library\NiTE2\Data\'"
 
 @pause
