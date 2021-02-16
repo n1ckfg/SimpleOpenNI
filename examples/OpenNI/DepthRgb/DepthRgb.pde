@@ -28,8 +28,13 @@ void setup()
   // enable depthMap generation 
   context.enableDepth();
   
-  // enable ir generation
-  context.enableIR();
+  // enable rgbMap generation
+  context.enableRGB();
+  
+  // align depth data to image data
+  context.alternativeViewPointDepthToImage();
+  // may not work for all hardware
+  //context.setDepthColorSyncEnabled(true);
   
   background(200,0,0);
 }
@@ -42,6 +47,6 @@ void draw()
   // draw depthImageMap
   image(context.depthImage(),0,0);
   
-  // draw irImageMap
-  image(context.irImage(),context.depthWidth(),0);
+  // draw rgbImageMap
+  image(context.rgbImage(),context.depthWidth(),0);
 }
