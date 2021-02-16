@@ -1,13 +1,15 @@
 https://3dclub.orbbec3d.com/t/running-simpleopenni-with-orbbec-sensors/35
 
-SimpleOpenNI is a great plugin for Processing and a variety of depth sensors including Orbbec sensors. Unfortunately, it currently only works with Processing 2.x at this point in time and hasn't been upgraded to 3.x. If you want to play with all the git samples that were written for SimpleOpenNI, make sure you are only downloading the older 2.2.1 version of processing.
+...Now you need to find the "sketchbook path" for your installation of processing.
+In the Processing menu, select File | Preferences. The sketchbook path should be
+at the top of the preferences window.
 
-Open Processing and select Sketch | Import Library | Add Library from the menu. Search for "SimpleOpenNI" and install it once you have found in the Add Library dialog.
+Grab the Orbbec driver and ini file you downloaded from the Orbbec 3d site and
+paste them into the following path: [sketchbook
+path]\libraries\SimpleOpenNI\library[your OS]\OpenNI2\Drivers\
 
-Now you need to find the "sketchbook path" for your installation of processing. In the Processing menu, select File | Preferences. The sketchbook path should be at the top of the preferences window.
+Now with your Orbbec sensor plugged in, you should be able to run all the
+SimpleOpenNI samples that come with SimpleOpenNI as well as any others. 
 
-Grab the Orbbec driver and ini file you downloaded from the Orbbec 3d site and paste them into the following path: [sketchbook path]\libraries\SimpleOpenNI\library[your OS]\OpenNI2\Drivers\
+...It works, but only the depth camera and rgb features. No NITE tracking.
 
-Now with your Orbbec sensor plugged in, you should be able to run all the SimpleOpenNI samples that come with SimpleOpenNI as well as any others. On the Processing Menu, select File | Examples, then Contributed Libraries\SimpleOpenNI\OpenNI.
-
-Have fun!
