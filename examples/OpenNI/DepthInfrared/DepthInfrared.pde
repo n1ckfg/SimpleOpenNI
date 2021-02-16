@@ -16,7 +16,7 @@ SimpleOpenNI  context;
 
 void setup()
 {
-  size(640, 480);
+  size(1280, 480, P2D);
   context = new SimpleOpenNI(this);
   if(context.isInit() == false)
   {
